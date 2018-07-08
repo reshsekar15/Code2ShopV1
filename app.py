@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import psycopg2
 from models import db
+from models import Challenges
 
 
 app = Flask(__name__)
@@ -28,6 +29,20 @@ def challengeupload():
 		db.session.add(challengeid)
 		db.session.commit()		
 	return render_template("challengeupload.html")
+	
+@app.route('/challengeuploadsuccess', methods = ['POST', 'GET'])
+def challengeuploadsuccess():
+	#if request.method == 'POST':
+		#challengeID = request.form('challengeid')
+		#challengename = request.form('challengename')
+		#challengepoints = request.form('challengepoints')
+		
+		#add to database
+	#session = Sessionmaker()
+	challenge_row = Challenges(challengeID = 1, challengeName = 'Test challenge', challengePoints = 100)
+	db.session.add(challenge_row)
+	db.session.commit()		
+	return render_template("challengeuploadsuccess.html")
     
 if __name__ == '__main__':
     app.debug = True

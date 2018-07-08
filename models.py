@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from flask import Flask
 
 db = SQLAlchemy()
 
@@ -31,12 +32,12 @@ class Challenges(db.Model):
 	challengeID = db.Column(db.Integer, primary_key = True)
 	challengeName = db.Column(db.String(150))
 	challengePoints = db.Column(db.Integer)
-	def __init__(self, challengeID):
-		self.challengeID = challengeID
-		self.challengeName = challengeName
-		self.challengePoints = challengePoints
+	#def __init__(self, challengeID, challengeName, challengePoints):
+		#self.challengeID = challengeID
+		#self.challengeName = challengeName
+		#self.challengePoints = challengePoints
 	def __repr__(self):
-		return '<Challenges %r>' % (self.challengeID)
+		return '<challengeID %r>' % (self.challengeID)
 
 #Products
 class Products(db.Model):
@@ -47,13 +48,6 @@ class Products(db.Model):
 		self.productName = productName
 	def __repr__(self):
 		return '<Products %r>' % (self.productiD)
-		
-#Linking Points to Challenges
-class ChallengePoints(db.Model):
-	pointid = db.Column(db.Integer, primary_key = True)
-	def __init__(self, pointid):
-		self.pointid = pointid
-	def __repr__(self):
-		return '<ChallengePoints %r>' % (self.pointid) 
+
 
 
