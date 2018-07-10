@@ -1,12 +1,11 @@
 <html>
 <head> Upload a Challenge </head>
-<form>
+<form action = "challengeuploadsuccess" method = "post">
 Challenge id: <br>
-<input type = "text" name = "challengeid">
+<input type = "text" name = "challengeid" value = "{{ request.form.challengeid }}">
 Challenge name: <br>
-<input type = "text" name = "challengename"> 
+<input type = "text" name = "challengename" value = "{{ request.form.challengename }}"> 
 Challenge point: <br>
-<input type = "text" name = "challengepoints">
-<a href="/challengeuploadsuccess" class="w3-btn w3-black">Submit </a>
-</form>
+<input type = "text" name = "challengepoints" value = "{{ request.form.challengepoints }}"> 
+<input class="btn btn-default" type="submit" value="Submit"></form>
 </html>
