@@ -48,6 +48,9 @@ class Products(db.Model):
 		self.productName = productName
 	def __repr__(self):
 		return '<Products %r>' % (self.productiD)
+		
+		
+
 
 
 

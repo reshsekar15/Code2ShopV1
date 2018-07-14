@@ -12,8 +12,16 @@ db.init_app(app)
 
 @app.route('/')
 def index():
-   return render_template("homepage.html")
+   return render_template("Brands.html")
    
+@app.route('/paidpartners')
+def paidpartners():
+	return render_template("paidpartners.html")
+	
+@app.route('/commissionpartners')
+def commissionpartners():
+	return render_template("commissionpartners.html")
+	   
 @app.route('/challenges')
 def challenges():
 	return render_template("challenges.html")
@@ -35,7 +43,7 @@ def challengeuploadsuccess():
 		db.session.commit()	
 		return render_template("challenges.html")
 	return render_template("challengeuploadsuccess.html")
-	
+		
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
