@@ -49,6 +49,22 @@ class Products(db.Model):
 	def __repr__(self):
 		return '<Products %r>' % (self.productiD)
 		
+#Brands
+class Brands(db.Model):
+	brandID = db.Column(db.Integer, primary_key = True)
+	brandName = db.Column(db.String(150))
+	productName = db.Column(db.String(150))
+	totalProducts = db.Column(db.Integer)
+	availableProducts = db.Column(db.Integer)
+	couponCode = db.Column(db.String(50))
+	emailID = db.Column(db.String(100))
+	contactName = db.Column(db.String(200))
+	contactNumber = db.Column(db.String(50))
+	#def __init__(self, brandID):
+		#self.brandID=brandID
+	def __repr__(self):
+		return '<brandID %r>' % (self.brandID)
+		
 		
 
 

@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, url_for, redirect
 import psycopg2
 from models import db
-from models import Challenges
+from models import Challenges, Brands
+from sqlalchemy.sql import func
 
 
 app = Flask(__name__)
@@ -18,9 +19,28 @@ def index():
 def paidpartners():
 	return render_template("paidpartners.html")
 	
-@app.route('/commissionpartners')
+@app.route('/commissionpartners', methods = ['GET', 'POST'])
 def commissionpartners():
 	return render_template("commissionpartners.html")
+	
+@app.route('/insertcommissionpartners', methods = ['GET', 'POST'])
+def insertcomissionpartners():
+	if request.method == 'POST':
+		valbrandname = request.form['brandname']
+		valproductname = request.form['productname']
+		valnumberofproducts = request.form['numberofproducts']
+		valcouponcode = request.form['couponcode']
+		valbrandemail = request.form['brandemail']
+		valbrandcontactname = request.form['brandcontactname']
+		valbrandcontactnumber = request.form['brandcontactnumber']
+		
+		#add to database
+		valbrandid = db.session.query(func.max(Brands.brandID)).scalar() + 1
+		brand_row = Brands(brandID = valbrandid, brandName =  valbrandname, productName = valproductname, totalProducts = valnumberofproducts, availableProducts = valnumberofproducts, couponCode = valcouponcode, emailID = valbrandemail, contactName = valbrandcontactname, contactNumber = valbrandcontactnumber)
+		db.session.add(brand_row)
+		db.session.commit()	
+		return render_template("Brands.html")
+	return render_template("Brands.html")
 	   
 @app.route('/challenges')
 def challenges():

@@ -2,4 +2,21 @@
 <head> Welcome to our commission partnerships page! 
 As a commission partner, you will engage with us as and when a product on your brand is clicked. 
 Thank you for supporting us! </head>
+<form action = "insertcommissionpartners" method = "post">
+<br>
+Brand name: <br>
+<input type = "text" name = "brandname" value = "{{ request.form.brandname }}"> <br>
+Product name: <br>
+<input type = "text" name = "productname" value = "{{ request.form.productname }}"> <br>
+Number of products: <br>
+<input type = "text" name = "numberofproducts" value = "{{ request.form.numberofproducts }}"> <br>
+Coupon code (option for now): <br>
+<input type = "text" name = "couponcode" value = "{{ request.form.couponcode }}"> <br>
+Email ID: <br>
+<input type = "text" name = "brandemail" value = "{{ request.form.brandemail }}"> <br>
+Contact name: <br>
+<input type = "text" name = "brandcontactname" value = "{{ request.form.brandcontactname }}"> <br>
+Contact number: <br>
+<input type = "text" name = "brandcontactnumber" value = "{{ request.form.brandcontactnumber }}"> <br>
+<input class="btn btn-default" type="submit" value="Submit"></form>
 </html>
