@@ -13,7 +13,11 @@ db.init_app(app)
 
 @app.route('/')
 def index():
-   return render_template("Brands.html")
+   return render_template("homepage.html")
+   
+@app.route('/brands')
+def brands():
+	return render_template("brands.html")
    
 @app.route('/paidpartners')
 def paidpartners():
@@ -42,6 +46,8 @@ def insertcomissionpartners():
 		return render_template("Brands.html")
 	return render_template("Brands.html")
 	   
+@app.route('/hostachallenge')
+
 @app.route('/challenges')
 def challenges():
 	return render_template("challenges.html")
