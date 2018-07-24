@@ -15,6 +15,10 @@ db.init_app(app)
 def index():
    return render_template("homepage.html")
    
+@app.route('/aboutus')
+def aboutus():
+	return render_template("aboutus.html")
+   
 @app.route('/brands')
 def brands():
 	return render_template("brands.html")
